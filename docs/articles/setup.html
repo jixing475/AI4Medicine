@@ -94,70 +94,12 @@
 
     
     
-<div id="set-env" class="section level1">
-<h1 class="hasAnchor">
-<a href="#set-env" class="anchor" aria-hidden="true"></a>set env</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-n</span> AI4Medicine  python=3.7  pyarrow ipykernel <span class="at">-y</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate AI4Medicine</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># week 1</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pandas numpy matplotlib seaborn tensorflow keras</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 激活虚拟环境</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> activate AI4Medicine</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create notebook kernel connected with the conda environment</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 如果没有ipykernel模块, 运行以下代码</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># conda install -c anaconda ipykernel -y</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> <span class="at">-m</span> ipykernel install <span class="at">--user</span> <span class="at">--name</span> AI4Medicine  <span class="at">--display-name</span> <span class="st">"AI4Medicine"</span></span></code></pre></div>
-</div>
-<div id="download-data-to-local" class="section level1">
-<h1 class="hasAnchor">
-<a href="#download-data-to-local" class="anchor" aria-hidden="true"></a>download data to local</h1>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># library(AI4Medicine)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> analysis/notebooks/Diagnosis/M1/nih</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/data.tar.gz </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/densenet.hdf5 </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/images-small</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/pretrained_model.h5 </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/pretrained_model_old.h5 </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/test.csv</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/train-all.csv</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/train-small.csv</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/train-small-new.csv</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/train-toy.csv</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/valid-all.csv</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/valid-small.csv</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">wget</span> https://wwlhugij.labs.coursera.org/edit/M1/nih/valid-toy.csv</span></code></pre></div>
-</div>
-<div id="m1" class="section level1">
-<h1 class="hasAnchor">
-<a href="#m1" class="anchor" aria-hidden="true"></a>M1</h1>
-<div id="ai4m_c1_w1_lecture_ex_01" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ai4m_c1_w1_lecture_ex_01" class="anchor" aria-hidden="true"></a>AI4M_C1_W1_lecture_ex_01</h2>
-<p><a href="https://wwlhugij.labs.coursera.org/notebooks/M1/AI4M_C1_W1_lecture_ex_01.ipynb#" class="external-link">AI4M_C1_W1_lecture_ex_01</a></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>rmarkdown.html_vignette.check_title <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> 
-<span class="fu">manuscriptsR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/manuscriptsR/man/ipynb_to_rmd.html" class="external-link">ipynb_to_rmd</a></span><span class="op">(</span><span class="st">"vignettes/AI4M_C1_W1_lecture_ex_01.ipynb"</span><span class="op">)</span>
-<span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pkgdown/man/build_articles.html" class="external-link">build_article</a></span><span class="op">(</span><span class="st">"AI4M_C1_W1_lecture_ex_01"</span><span class="op">)</span>
-<span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/pkgdown/man/build_site.html" class="external-link">build_site</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-</div>
-</div>
-<div id="misc" class="section level1">
-<h1 class="hasAnchor">
-<a href="#misc" class="anchor" aria-hidden="true"></a>Misc</h1>
-<p>查找课程 jupyter notebook 的代码:</p>
-<p><a href="https://github.com/search?q=AI4M_C1&amp;type=commits" class="external-link uri">https://github.com/search?q=AI4M_C1&amp;type=commits</a></p>
-</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
-    </nav>
-</div>
+      </div>
 
 </div>
 

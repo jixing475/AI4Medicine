@@ -10,52 +10,71 @@ The goal of AI4Medicine is to …
 
 ## Installation
 
-You can install the released version of AI4Medicine from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("AI4Medicine")
-```
-
-And the development version from [GitHub](https://github.com/) with:
-
 ``` r
 # install.packages("devtools")
 devtools::install_github("jixing475/AI4Medicine")
 ```
 
-## Example
+# set env
 
-This is a basic example which shows you how to solve a common problem:
+``` bash
+conda create -n AI4Medicine  python=3.7  pyarrow ipykernel -y
+conda activate AI4Medicine
 
-``` r
-library(AI4Medicine)
-## basic example code
+# week 1
+pip install pandas numpy matplotlib seaborn tensorflow keras
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+``` bash
+# 激活虚拟环境
+conda activate AI4Medicine
 
-``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+# create notebook kernel connected with the conda environment
+# 如果没有ipykernel模块, 运行以下代码
+# conda install -c anaconda ipykernel -y
+python -m ipykernel install --user --name AI4Medicine  --display-name "AI4Medicine"
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<https://github.com/r-lib/actions/tree/master/examples>.
+# download data to local
 
-You can also embed plots, for example:
+``` r
+# library(AI4Medicine)
+```
 
-<img src="man/figures/README-pressure-1.png" width="100%" />
+``` bash
+cd analysis/notebooks/Diagnosis/M1/nih
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/data.tar.gz 
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/densenet.hdf5 
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/images-small
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/pretrained_model.h5 
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/pretrained_model_old.h5 
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/test.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/train-all.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/train-small.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/train-small-new.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/train-toy.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/valid-all.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/valid-small.csv
+wget https://wwlhugij.labs.coursera.org/edit/M1/nih/valid-toy.csv
+```
+
+# M1
+
+## AI4M\_C1\_W1\_lecture\_ex\_01
+
+[AI4M\_C1\_W1\_lecture\_ex\_01](https://wwlhugij.labs.coursera.org/notebooks/M1/AI4M_C1_W1_lecture_ex_01.ipynb#)
+
+``` r
+options(rmarkdown.html_vignette.check_title = FALSE) 
+manuscriptsR::ipynb_to_rmd("vignettes/AI4M_C1_W1_lecture_ex_01.ipynb")
+#usethis::use_vignette("AI4M_C1_W1_lecture_ex_01")
+pkgdown::build_article("AI4M_C1_W1_lecture_ex_01")
+#pkgdown::build_site()
+```
+
+# Misc
+
+查找课程 jupyter notebook 的代码:
+
+<https://github.com/search?q=AI4M_C1&type=commits>
